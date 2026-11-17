@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated paper."
+title: "Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia"
+authors:
+  - family-names: Riffiod
+    given-names: Noah
+    affiliation: "Universitat Politecnica de Valencia"
+version: 1.0.0
+date-released: 2026-11-17
+license: MIT
