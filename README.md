@@ -41,9 +41,12 @@ only the direct cost is computed.
 
 Ranges use the bounds of the 95% interval of the attributable warming.
 Figures from a run with HeatStressR 3.0.0; the last digit may differ by rounding.
-The script also prints the sensitivity to work intensity, to sun or shade
-exposure and to the wind height. The cost is proportional to the share of
-jobs exposed.
+The script also prints every other figure of the outdoor-work section of
+the paper: Table 3 (intensity and hourly labour cost), the working days and
+WBGT in the sun by wave, the cost by sector (Table 8), the share of hours
+lost by sector, the sensitivity to work intensity, to sun or shade exposure
+and to the wind height (all on the three waves), the cost with half of the
+jobs exposed, and the steepness of the work-capacity function.
 
 ## Running the code
 
