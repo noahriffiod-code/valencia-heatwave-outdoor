@@ -1,7 +1,8 @@
 # Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia
 
-Code and data for the outdoor work section of *[paper title]*, [authors],
-[journal, year].
+Code and data for the outdoor work section of *Attributing the economic cost of the summer 2026 heat waves in
+València to climate change*, N. Riffiod, A.G. Fernández-Garza,
+D. Ávila-Velásquez, E. Gielen and M. Pulido-Velazquez (2026).
 
 The analysis estimates the direct cost of the heat-induced loss of work
 capacity for outdoor work in the city of Valencia during the three official
@@ -63,7 +64,7 @@ The script reads only the files in `data/`; nothing is downloaded.
 | File | Content | Source |
 |---|---|---|
 | `era5_valencia_hourly_2026-06-01_2026-09-30.csv` | ERA5 hourly, local and UTC time | Open-Meteo archive API (Zippenfenig 2024), `models=era5`, `elevation=nan`, `cell_selection=land`, nearest land cell to AEMET station 8416, retrieved 4 Nov 2026 |
-| `delta_barnes_2026_valencia.csv` | Attributable warming by month, 95% interval | Computed from Barnes et al. (2026), [doi:10.5281/zenodo.22228327](https://doi.org/10.5281/zenodo.22228327), city ES003C |
+| `delta_barnes_2026_valencia.csv` | Attributable warming by month, 95% interval | Computed from Barnes et al. (2026), [doi:10.5281/zenodo.22228326](https://doi.org/10.5281/zenodo.22228326), city ES003C |
 | `heatwaves_aemet_2026.csv` | Dates of the 2026 heatwaves | AEMET, note of 9 Sep 2026, [link](https://www.aemet.es/es/noticias/2026/09/olas_de_calor_2026) |
 
 Employment, labour costs and work intensities are entered in
@@ -86,7 +87,7 @@ Employment, labour costs and work intensities are entered in
   ([aviso legal](https://ine.es/dyngs/AYU/index.htm?cid=125)); the INE does
   not endorse this work.
 - **Barnes et al. (2026)**: monthly values derived from the authors' data
-  and code (doi:10.5281/zenodo.22228327, CC BY 4.0).
+  and code (doi:10.5281/zenodo.22228326, CC BY 4.0).
 - **Employment**: figures from the Ajuntament de Valencia statistical
   yearbook (Social Security affiliations; source Ministerio de Trabajo y
   Economia Social).
@@ -139,7 +140,7 @@ Raju, E., Theokritoff, E., Mistry, M., Gasparrini, A., Otto, F.,
 Vicedo-Cabrera, A. M., Konstantinoudis, G. (2026). Heat-related urban
 mortality attributable to human-induced climate change in Europe from 2000
 to 2025. *Nature Health*. https://doi.org/10.1038/s44360-026-00209-8. Data
-and code: https://doi.org/10.5281/zenodo.22228327
+and code: https://doi.org/10.5281/zenodo.22228326
 
 Herrmann, S. D., Willis, E. A., Ainsworth, B. E., et al. (2024). 2024 Adult
 Compendium of Physical Activities: a third update of the energy costs of human
