@@ -1,10 +1,13 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the associated paper."
+message: "If you use this code, please cite it as below."
+type: software
 title: "Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia"
+abstract: "Code and data for 'Attributing the economic cost of the summer 2026 heat waves in València to climate change'."
 authors:
   - family-names: Riffiod
     given-names: Noah
-    affiliation: "Universitat Politecnica de Valencia"
+    affiliation: "École nationale des ponts et chaussées (ENPC)"
+repository-code: "https://github.com/noahriffiod-code/valencia-heatwave-outdoor"
 version: 1.0.0
-date-released: 2026-11-17
+date-released: 2026-11-19
 license: MIT

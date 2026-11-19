@@ -1,7 +1,9 @@
 # Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia
 
-Code and data for the outdoor work section of *[paper title]*, [authors],
-[journal, year].
+Code and data for the outdoor work section of
+*Attributing the economic cost of the summer 2026 heat waves in València to
+climate change*, by N. Riffiod, A. G. Fernández-Garza, D. Ávila-Velásquez,
+E. Gielen and M. Pulido-Velazquez (2026).
 
 The analysis estimates the direct cost of the heat-induced loss of work
 capacity for outdoor work in the city of Valencia during the three official
@@ -21,7 +23,7 @@ Orlov et al. (2020), applied to hourly data:
    total labour cost of the INE (ETCL, 2026 Q2) for five sectors:
    construction, water and waste, warehousing, postal and courier, buildings
    and landscape. Employment: Social Security affiliations in the city at
-   31 December 2024 (Ajuntament de Valencia 2025).
+   31 December 2024 (Ajuntament de València 2025).
 4. **Climate change.** Counterfactual temperature T - delta, with the monthly
    attributable warming of Barnes et al. (2026), available for June to
    August.
@@ -62,8 +64,8 @@ The script reads only the files in `data/`; nothing is downloaded.
 
 | File | Content | Source |
 |---|---|---|
-| `era5_valencia_hourly_2026-06-01_2026-09-30.csv` | ERA5 hourly, local and UTC time | Open-Meteo archive API (Zippenfenig 2024), `models=era5`, `elevation=nan`, `cell_selection=land`, nearest land cell to AEMET station 8416, retrieved 4 Nov 2026 |
-| `delta_barnes_2026_valencia.csv` | Attributable warming by month, 95% interval | Computed from Barnes et al. (2026), [doi:10.5281/zenodo.22228327](https://doi.org/10.5281/zenodo.22228327), city ES003C |
+| `era5_valencia_hourly_2026-06-01_2026-09-30.csv` | ERA5 hourly, local and UTC time | Open-Meteo archive API (Zippenfenig 2023), `models=era5`, `elevation=nan`, `cell_selection=land`, nearest land cell to AEMET station 8416, retrieved 4 Nov 2026 |
+| `delta_barnes_2026_valencia.csv` | Attributable warming by month, 95% interval | Computed from Barnes et al. (2026), [doi:10.5281/zenodo.22228326](https://doi.org/10.5281/zenodo.22228326), city ES003C |
 | `heatwaves_aemet_2026.csv` | Dates of the 2026 heatwaves | AEMET, note of 9 Sep 2026, [link](https://www.aemet.es/es/noticias/2026/09/olas_de_calor_2026) |
 
 Employment, labour costs and work intensities are entered in
@@ -77,8 +79,8 @@ Employment, labour costs and work intensities are entered in
   Weather data by [Open-Meteo.com](https://open-meteo.com/), licensed under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); column names
   changed.
-- **AEMET**: (c) AEMET. Information prepared using, among others, data from
-  the Agencia Estatal de Meteorologia. Reused under the AEMET terms
+- **AEMET**: © AEMET. Information prepared using, among others, data from
+  the Agencia Estatal de Meteorología. Reused under the AEMET terms
   ([nota legal](https://www.aemet.es/es/nota_legal)); AEMET does not endorse
   this work.
 - **INE**: Own elaboration with data extracted from the INE website,
@@ -86,10 +88,10 @@ Employment, labour costs and work intensities are entered in
   ([aviso legal](https://ine.es/dyngs/AYU/index.htm?cid=125)); the INE does
   not endorse this work.
 - **Barnes et al. (2026)**: monthly values derived from the authors' data
-  and code (doi:10.5281/zenodo.22228327, CC BY 4.0).
-- **Employment**: figures from the Ajuntament de Valencia statistical
+  and code (doi:10.5281/zenodo.22228326, CC BY 4.0).
+- **Employment**: figures from the Ajuntament de València statistical
   yearbook (Social Security affiliations; source Ministerio de Trabajo y
-  Economia Social).
+  Economía Social).
 - **Work intensities**: MET values from Herrmann et al. (2024) and
   Tudor-Locke et al. (2011), cited by activity code, not reproduced.
 - **HeatStressR** (Zheng, with code from the HeatStress package of
@@ -123,10 +125,11 @@ See `CITATION.cff`.
 
 ## References
 
-AEMET (2026). Olas de calor 2026. Agencia Estatal de Meteorologia, note of
-9 September 2026. https://www.aemet.es/es/noticias/2026/09/olas_de_calor_2026
+AEMET (2026). España registra 61 días bajo ola de calor en 2026, más que en
+ningún otro año. Agencia Estatal de Meteorología, 9 September 2026.
+https://www.aemet.es/es/noticias/2026/09/olas_de_calor_2026
 
-Ajuntament de Valencia (2025). Anuario estadistico 2025, chapter 7, file
+Ajuntament de València (2025). Anuario estadístico 2025, chapter 7, file
 070401_AfiliacionSS.xlsx (Social Security affiliations at 31 December 2024).
 https://www.valencia.es/val/estadistica/anuari-estadistica?capitulo=7
 
@@ -139,7 +142,7 @@ Raju, E., Theokritoff, E., Mistry, M., Gasparrini, A., Otto, F.,
 Vicedo-Cabrera, A. M., Konstantinoudis, G. (2026). Heat-related urban
 mortality attributable to human-induced climate change in Europe from 2000
 to 2025. *Nature Health*. https://doi.org/10.1038/s44360-026-00209-8. Data
-and code: https://doi.org/10.5281/zenodo.22228327
+and code: https://doi.org/10.5281/zenodo.22228326
 
 Herrmann, S. D., Willis, E. A., Ainsworth, B. E., et al. (2024). 2024 Adult
 Compendium of Physical Activities: a third update of the energy costs of human
@@ -151,7 +154,7 @@ reanalysis. *Quarterly Journal of the Royal Meteorological Society*,
 146(730), 1999-2049. https://doi.org/10.1002/qj.3803
 
 INE (2026). Encuesta Trimestral de Coste Laboral, table 6061 and press
-release for the second quarter of 2026. Instituto Nacional de Estadistica.
+release for the second quarter of 2026. Instituto Nacional de Estadística.
 https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/6061.csv ;
 https://www.ine.es/dyngs/Prensa/ETCL2T26.pdf
 
@@ -162,7 +165,7 @@ conjunction with climate change. *International Journal of Biometeorology*,
 
 Lemke, B., Kjellstrom, T. (2012). Calculating workplace WBGT from
 meteorological data: a tool for climate change assessment. *Industrial
-Health*, 50(4), 267-278.
+Health*, 50(4), 267-278. https://doi.org/10.2486/indhealth.MS1352
 
 Liljegren, J. C., Carhart, R. A., Lawday, P., Tschopp, S., Sharp, R. (2008).
 Modeling the wet bulb globe temperature using standard meteorological
@@ -183,5 +186,5 @@ Zheng, Y. (2026). HeatStressR: calculate heat stress indices. R package
 version 3.0.0 (fork of HeatStress by A. Casanueva). CRAN.
 https://github.com/cran/HeatStressR
 
-Zippenfenig, P. (2024). Open-Meteo.com Weather API (v1.4.0). Zenodo.
-https://doi.org/10.5281/zenodo.14582479
+Zippenfenig, P. (2023). Open-Meteo.com Weather API. Zenodo.
+https://doi.org/10.5281/zenodo.7970649
