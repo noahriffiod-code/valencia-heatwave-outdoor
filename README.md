@@ -50,12 +50,13 @@ jobs exposed, and the steepness of the work-capacity function.
 
 ## Running the code
 
-Requirements: R (tested with 4.3.3) and the package HeatStressR (3.0.0 or
-later). Open `valencia_heatwave_outdoor.Rproj` (or set the working directory
-to the repository root) and run
+Requirements: R and the package HeatStressR 3.0.0 (which installs its
+dependency heatindex from CRAN). Open `valencia_heatwave_outdoor.Rproj` (or
+set the working directory to the repository root) and run
 
 ```r
-install.packages("HeatStressR")
+install.packages("remotes")
+remotes::install_github("zyf0717/HeatStressR@v3.0.0")
 source("labour_productivity.R")
 ```
 
