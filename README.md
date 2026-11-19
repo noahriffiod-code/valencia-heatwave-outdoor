@@ -1,9 +1,8 @@
 # Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia
 
-Code and data for the outdoor work section of
-*Attributing the economic cost of the summer 2026 heat waves in València to
-climate change*, by N. Riffiod, A. G. Fernández-Garza, D. Ávila-Velásquez,
-E. Gielen and M. Pulido-Velazquez (2026).
+Code and data for the outdoor work section of *Attributing the economic cost of the summer 2026 heat waves in
+València to climate change*, N. Riffiod, A.G. Fernández-Garza,
+D. Ávila-Velásquez, E. Gielen and M. Pulido-Velazquez (2026).
 
 The analysis estimates the direct cost of the heat-induced loss of work
 capacity for outdoor work in the city of Valencia during the three official
@@ -42,18 +41,22 @@ only the direct cost is computed.
 
 Ranges use the bounds of the 95% interval of the attributable warming.
 Figures from a run with HeatStressR 3.0.0; the last digit may differ by rounding.
-The script also prints the sensitivity to work intensity, to sun or shade
-exposure and to the wind height. The cost is proportional to the share of
-jobs exposed.
+The script also prints every other figure of the outdoor-work section of
+the paper: Table 3 (intensity and hourly labour cost), the working days and
+WBGT in the sun by wave, the cost by sector (Table 8), the share of hours
+lost by sector, the sensitivity to work intensity, to sun or shade exposure
+and to the wind height (all on the three waves), the cost with half of the
+jobs exposed, and the steepness of the work-capacity function.
 
 ## Running the code
 
-Requirements: R (tested with 4.3.3) and the package HeatStressR (3.0.0 or
-later). Open `valencia_heatwave_outdoor.Rproj` (or set the working directory
-to the repository root) and run
+Requirements: R and the package HeatStressR 3.0.0 (which installs its
+dependency heatindex from CRAN). Open `valencia_heatwave_outdoor.Rproj` (or
+set the working directory to the repository root) and run
 
 ```r
-install.packages("HeatStressR")
+install.packages("remotes")
+remotes::install_github("zyf0717/HeatStressR@v3.0.0")
 source("labour_productivity.R")
 ```
 

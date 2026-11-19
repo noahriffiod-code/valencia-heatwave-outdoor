@@ -146,14 +146,12 @@ delta <- read.csv(file_delta)      # month, delta, delta_low, delta_high
 waves <- read.csv(file_waves)      # wave, start, end, status
 waves <- waves[waves$status != "provisional", ]
 
-# Periods: each wave, all waves, and the whole summer for reference
+# Periods: each wave and all waves
 wave_days <- lapply(seq_len(nrow(waves)), function(i)
   seq(as.Date(waves$start[i]), as.Date(waves$end[i]), by = "day"))
 names(wave_days) <- paste("Wave", waves$wave)
 
-periods <- c(wave_days,
-             list("All waves"            = do.call(c, unname(wave_days)),
-                  "Summer (June-August)" = seq(as.Date("2026-06-01"), as.Date("2026-08-31"), by = "day")))
+periods <- c(wave_days, list("All waves" = do.call(c, unname(wave_days))))
 
 weather <- weather[weather$day %in% do.call(c, unname(periods)), ]
 month   <- as.integer(format(weather$day, "%m"))
@@ -236,15 +234,45 @@ print(round3(by_period[match(names(periods), by_period$period), ]), row.names = 
 cat("\nCost by sector and period (million EUR)\n")
 print(round(xtabs(cost_meur ~ sector + period, central), 3))
 
+cat("\nTable 8: cost by sector, all waves (million EUR)\n")
+t8 <- central[central$period == "All waves", c("sector", "cost_meur", "climate_meur")]
+t8 <- rbind(t8, data.frame(sector = "Total", cost_meur = sum(t8$cost_meur), climate_meur = sum(t8$climate_meur)))
+t8$share_pct <- round(100 * t8$climate_meur / t8$cost_meur)
+print(round3(t8), row.names = FALSE)
+
 cat("\nMean share of working hours lost by sector and period (%)\n")
 print(round(xtabs(loss_pct ~ sector + period, central), 2))
 
-cat("\nSensitivity, all waves (million EUR)\n")
-print(round3(sum_by(results[results$period == "All waves", ], "scenario")), row.names = FALSE)
+cat("\nSensitivity, all waves (million EUR; change relative to the central scenario, %)\n")
+sens <- sum_by(results[results$period == "All waves", ], "scenario")
+ref  <- sens[sens$scenario == "Central", ]
+sens$cost_change_pct    <- round(100 * (sens$cost_meur / ref$cost_meur - 1), 1)
+sens$climate_change_pct <- round(100 * (sens$climate_meur / ref$climate_meur - 1), 1)
+print(round3(sens), row.names = FALSE)
 
-cat("\nShare of jobs exposed, all waves (million EUR)\n")
-all_waves <- by_period$cost_meur[by_period$period == "All waves"]
-print(data.frame(share_exposed = c(0.25, 0.5, 0.75, 1),
-                 cost_meur = round(all_waves * c(0.25, 0.5, 0.75, 1), 3)), row.names = FALSE)
+cat("\nHalf of the jobs exposed, all waves (million EUR):",
+    round(0.5 * by_period$climate_meur[by_period$period == "All waves"], 2), "\n")
+
+# Table 3 of the paper: work intensity (W, bounded to the 200-400 W domain
+# of the function) and hourly labour cost in July 2026
+july <- as.Date("2026-07-01")
+cat("\nSectors (Table 3)\n")
+print(data.frame(sector = sectors$sector, jobs = sectors$jobs,
+                 watts = round(pmin(pmax(sectors$watts, 200), 400)), exposure = sectors$exposure,
+                 cost_hour_july = round(sectors$cost_month / (working_days_in_month(july) * (hour_end - hour_start)), 2)),
+      row.names = FALSE)
+
+cat("\nWorking days and WBGT in the sun (degC) by wave\n")
+print(do.call(rbind, lapply(names(wave_days), function(name) {
+  h <- weather$day %in% wave_days[[name]]
+  daily_max <- tapply(weather$wbgt_sun[h], weather$day[h], max)
+  data.frame(period = name, working_days = length(unique(weather$day[h & weather$worked])),
+             mean_daily_max = round(mean(daily_max), 1), peak = round(max(daily_max), 1))
+})), row.names = FALSE)
+
+cat("\nSteepness of the function at 370 W: increase of the lost fraction for +0.3 degC of WBGT\n")
+for (w in c(28, 32))
+  cat(sprintf("  at %d degC: %+.0f%%\n", w,
+              100 * ((1 - work_capacity(w + 0.3, 370)) / (1 - work_capacity(w, 370)) - 1)))
 
 write.csv(results, "output/labour_productivity_results.csv", row.names = FALSE)
