@@ -234,11 +234,21 @@ print(round3(by_period[match(names(periods), by_period$period), ]), row.names = 
 cat("\nCost by sector and period (million EUR)\n")
 print(round(xtabs(cost_meur ~ sector + period, central), 3))
 
+cat("\nTable 8: cost by sector, all waves (million EUR)\n")
+t8 <- central[central$period == "All waves", c("sector", "cost_meur", "climate_meur")]
+t8 <- rbind(t8, data.frame(sector = "Total", cost_meur = sum(t8$cost_meur), climate_meur = sum(t8$climate_meur)))
+t8$share_pct <- round(100 * t8$climate_meur / t8$cost_meur)
+print(round3(t8), row.names = FALSE)
+
 cat("\nMean share of working hours lost by sector and period (%)\n")
 print(round(xtabs(loss_pct ~ sector + period, central), 2))
 
-cat("\nSensitivity, all waves (million EUR)\n")
-print(round3(sum_by(results[results$period == "All waves", ], "scenario")), row.names = FALSE)
+cat("\nSensitivity, all waves (million EUR; change relative to the central scenario, %)\n")
+sens <- sum_by(results[results$period == "All waves", ], "scenario")
+ref  <- sens[sens$scenario == "Central", ]
+sens$cost_change_pct    <- round(100 * (sens$cost_meur / ref$cost_meur - 1), 1)
+sens$climate_change_pct <- round(100 * (sens$climate_meur / ref$climate_meur - 1), 1)
+print(round3(sens), row.names = FALSE)
 
 cat("\nHalf of the jobs exposed, all waves (million EUR):",
     round(0.5 * by_period$climate_meur[by_period$period == "All waves"], 2), "\n")
