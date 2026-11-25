@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this code, please cite it as below."
 type: software
 title: "Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia"
-abstract: "Code and data for 'Attributing the economic cost of the summer 2026 heat waves in València to climate change'."
+abstract: "Code and data for 'Attributing the economic cost of the summer 2026 heatwaves in Valencia to climate change'."
 authors:
   - family-names: Riffiod
     given-names: Noah

@@ -1,7 +1,6 @@
 # Labour productivity cost of the 2026 heatwaves for outdoor work in Valencia
 
-Code and data for the outdoor work section of *Attributing the economic cost of the summer 2026 heat waves in
-València to climate change*, N. Riffiod, A.G. Fernández-Garza,
+Code and data for the outdoor work section of *Attributing the economic cost of the summer 2026 heatwaves in Valencia to climate change*, N. Riffiod, A.G. Fernández-Garza,
 D. Ávila-Velásquez, E. Gielen and M. Pulido-Velazquez (2026).
 
 The analysis estimates the direct cost of the heat-induced loss of work
